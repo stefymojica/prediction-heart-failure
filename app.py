@@ -5,7 +5,11 @@ model = ('../prediction/model.pkl')
 app = Dash(__name__)
 
 app.layout = html.Div([
-    html.Div(children='Prediction Heart Failure'),
+    html.H1(
+        children='Prediction Heart Failure',
+        style={
+            'textAlign':'center',
+            'color':'#113f67'}),
 
     html.Br(),
     html.Label('Age'),
