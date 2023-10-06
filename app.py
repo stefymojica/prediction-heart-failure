@@ -10,7 +10,8 @@ app.layout = html.Div([
         'display': 'flex',
         'flexDirection': 'column',
         'alignItems': 'center',
-        'justifyContent': 'center'
+        'justifyContent': 'center',
+        'margin-bottom': '30px'
     },  children=[
         html.H1(
             children='Prediction Heart Failure',
@@ -18,19 +19,23 @@ app.layout = html.Div([
                 'textAlign': 'center',
                 'color': '#113f67'})
     ]),
-    html.Div([
+    html.Div(
+        style={
+            'display': 'grid',
+            'grid-template-columns': '1fr 1fr',
+        },children=[
         html.Div(
             style={
                 'display': 'flex',
                 'flexDirection': 'column',
-                'margin-left': '400px',
+                'margin-left': '370px',
                 'alignItems': 'left',
                 'justifyContent': 'center'
                 },
             children=[
         html.Br(),
         html.Label('Age'),
-        dcc.Input(value='Anote Age', type='number',
+        dcc.Input(id='my-input-1',value='Anote Age', type='number',
                 style={
                     'textAlign': 'center',
                     'margin-bottom': '10px',
@@ -38,23 +43,39 @@ app.layout = html.Div([
 
         html.Br(),
         html.Label('Anaemia'),
-        dcc.Input(value='Anote Anaemia', type='number',
-                style={
-                    'textAlign': 'center',
-                    'margin-bottom': '10px',
-                    'width': '150px'}),
+        dcc.Dropdown(id='my-input-2',
+            options=['O','1'],
+            value='Anote anaemia',
+            style={
+                'textAlign': 'center',
+                'margin-bottom': '10px',
+                'width': '160px'}
+        ),
+        # dcc.Input(id='my-input-2',value='Anote Anaemia', type='number',
+        #         style={
+        #             'textAlign': 'center',
+        #             'margin-bottom': '10px',
+        #             'width': '150px'}),
 
         html.Br(),
         html.Label('Diabetes'),
-        dcc.Input(value='Anote Diabetes', type='number',
-                style={
-                    'textAlign': 'center',
-                    'margin-bottom': '10px',
-                    'width': '150px'}),
+        dcc.Dropdown(id='my-input-3',
+            options=['O','1'],
+            value='Anote Diabetes',
+            style={
+                'textAlign': 'center',
+                'margin-bottom': '10px',
+                'width': '160px'}
+        ),
+        # dcc.Input(id='my-input-3',value='Anote Diabetes', type='number',
+        #         style={
+        #             'textAlign': 'center',
+        #             'margin-bottom': '10px',
+        #             'width': '150px'}),
 
         html.Br(),
         html.Label('Ejection fraction'),
-        dcc.Input(value='Anote Ejection fraction', type='number',
+        dcc.Input(id='my-input-4',value='Anote Ejection fraction', type='number',
                 style={
                     'textAlign': 'center',
                     'margin-bottom': '10px',
@@ -64,48 +85,75 @@ app.layout = html.Div([
             style={
                 'display': 'flex',
                 'flexDirection': 'column',
-                'margin-left': '750px',
+                'margin-left': '150px',
                 'alignItems': 'left',
                 'justifyContent': 'left',
-                'margin-top':'-273px',
                 },
             children=[
         html.Br(),
         html.Label('High blood pressure'),
-        dcc.Input(value='Anote High blood pressure', type='number',
-                style={
-                    'textAlign': 'center',
-                    'margin-bottom': '10px',
-                    'width': '150px'}),
+        dcc.Dropdown(id='my-input-5',
+            options=['O','1'],
+            value='Anote High blood pressure',
+            style={
+                'textAlign': 'center',
+                'margin-bottom': '10px',
+                'width': '160px'}
+        ),
+        # dcc.Input(id='my-input-5',value='Anote High blood pressure', type='number',
+        #         style={
+        #             'textAlign': 'center',
+        #             'margin-bottom': '10px',
+        #             'width': '150px'}),
 
         html.Br(),
         html.Label('Serum creatinine'),
-        dcc.Input(value='Anote Serum creatinine', type='number',
+        dcc.Input(id='my-input-6',value='Anote Serum creatinine', type='number',
                 style={
                     'textAlign': 'center',
                     'margin-bottom': '10px',
                     'width': '150px'}),
-
         html.Br(),
         html.Label('Sex'),
-        dcc.Input(value='Anote Sex', type='number',
-                style={
-                    'textAlign': 'center',
-                    'margin-bottom': '10px',
-                    'width': '150px'}),
+        dcc.Dropdown(id='my-input-7',
+            options=['O','1'],
+            value='Sex',
+            style={
+                'textAlign': 'center',
+                'margin-bottom': '10px',
+                'width': '160px'}
+        ),
+        # dcc.Input(id='my-input-7',value='Anote Sex', type='number',
+        #         style={
+        #             'textAlign': 'center',
+        #             'margin-bottom': '10px',
+        #             'width': '150px'}),
 
         html.Br(),
         html.Label('Smoking'),
-        dcc.Input(value='Anote Smoking', type='number',
-                style={
-                    'textAlign': 'center',
-                    'margin-bottom': '10px',
-                    'width': '150px'}),
+        dcc.Dropdown(id='my-input-8',
+            options=['O','1'],
+            value='Smoking',
+            style={
+                'textAlign': 'center',
+                'margin-bottom': '10px',
+                'width': '160px'}
+        ),
+        # dcc.Input(id='my-input-8',value='Anote Smoking', type='number',
+        #         style={
+        #             'textAlign': 'center',
+        #             'margin-bottom': '10px',
+        #             'width': '150px'}),
+    ])
+    ]),
+    html.Div(
+        style={
+            'textAlign': 'center',
+            'margin-top': '70px'
+        }, children=[
+        html.Button('Click here to see the result', id='show-secret')
     ])
     ])
-    ])
-
-
 
 app.run(debug=True, port=8060)
 if __name__ == '__main__':
