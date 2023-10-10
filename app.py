@@ -15,7 +15,7 @@ app.layout = html.Div([
             'flexDirection': 'column',
             'alignItems': 'center',
             'justifyContent': 'center',
-            'margin-bottom': '30px'
+            'margin-bottom': '10px'
         },  children=[
             html.H1(
                 children='Prediction Heart Failure',
@@ -38,15 +38,26 @@ app.layout = html.Div([
                 },
                 children=[
                     html.Br(),
-                    html.Label('Age'),
+                    html.Label('Age', 
+                               style={
+                                   'color': '#113f67',
+                                   'font-size':'20',
+                                   'font-weight':'bold'}),
                     dcc.Input(id='my-input-1', value='Anote Age', type='number',
                               style={
                                   'textAlign': 'center',
                                   'margin-bottom': '10px',
-                                  'width': '150px'}),
+                                  'width': '150px',
+                                  'border-radius':'10px',
+                                  'border-color':'#53a8b6',
+                                  'border-width': 'thick'}),
 
                     html.Br(),
-                    html.Label('Anaemia'),
+                    html.Label('Anaemia', 
+                               style={
+                                   'color': '#113f67',
+                                   'font-size':'20',
+                                   'font-weight':'bold'}),
                     # dcc.Dropdown(id='my-input-2',
                     #              options=['O', '1'],
                     #              value='Anote anaemia',
@@ -59,10 +70,17 @@ app.layout = html.Div([
                               style={
                                   'textAlign': 'center',
                                   'margin-bottom': '10px',
-                                  'width': '150px'}),
+                                  'width': '150px',
+                                  'border-radius':'10px',
+                                  'border-color':'#53a8b6',
+                                  'border-width': 'thick'}),
 
                     html.Br(),
-                    html.Label('Diabetes'),
+                    html.Label('Diabetes', 
+                               style={
+                                   'color': '#113f67',
+                                   'font-size':'20',
+                                   'font-weight':'bold'}),
                     # dcc.Dropdown(id='my-input-3',
                     #              options=['O', '1'],
                     #              value='Anote Diabetes',
@@ -75,15 +93,25 @@ app.layout = html.Div([
                               style={
                                   'textAlign': 'center',
                                   'margin-bottom': '10px',
-                                  'width': '150px'}),
+                                  'width': '150px',
+                                  'border-radius':'10px',
+                                  'border-color':'#53a8b6',
+                                  'border-width': 'thick'}),
 
                     html.Br(),
-                    html.Label('Ejection fraction'),
+                    html.Label('Ejection fraction', 
+                               style={
+                                   'color': '#113f67',
+                                   'font-size':'20',
+                                   'font-weight':'bold'}),
                     dcc.Input(id='my-input-4', value='Anote Ejection fraction', type='number',
                               style={
                                   'textAlign': 'center',
                                   'margin-bottom': '10px',
-                                  'width': '150px'}),
+                                  'width': '150px',
+                                  'border-radius':'10px',
+                                  'border-color':'#53a8b6',
+                                  'border-width': 'thick'}),
                 ]),
             html.Div(
                 style={
@@ -95,7 +123,11 @@ app.layout = html.Div([
                 },
                 children=[
                     html.Br(),
-                    html.Label('High blood pressure'),
+                    html.Label('High blood pressure',
+                               style={
+                                   'color': '#113f67',
+                                   'font-size':'20',
+                                   'font-weight':'bold'}),
                     # dcc.Dropdown(id='my-input-5',
                     #              options=['O', '1'],
                     #              value='Anote High blood pressure',
@@ -108,17 +140,31 @@ app.layout = html.Div([
                               style={
                                   'textAlign': 'center',
                                   'margin-bottom': '10px',
-                                  'width': '150px'}),
+                                  'width': '150px',
+                                  'border-radius':'10px',
+                                  'border-color':'#53a8b6',
+                                  'border-width': 'thick'}),
 
                     html.Br(),
-                    html.Label('Serum creatinine'),
+                    html.Label('Serum creatinine',
+                               style={
+                                   'color': '#113f67',
+                                   'font-size':'20',
+                                   'font-weight':'bold'}),
                     dcc.Input(id='my-input-6', value='Anote Serum creatinine', type='number',
                               style={
                                   'textAlign': 'center',
                                   'margin-bottom': '10px',
-                                  'width': '150px'}),
+                                  'width': '150px',
+                                  'border-radius':'10px',
+                                  'border-color':'#53a8b6',
+                                  'border-width': 'thick'}),
                     html.Br(),
-                    html.Label('Sex'),
+                    html.Label('Sex',
+                               style={
+                                   'color': '#113f67',
+                                   'font-size':'20',
+                                   'font-weight':'bold'}),
                     # dcc.Dropdown(id='my-input-7',
                     #              options=['O', '1'],
                     #              value='Sex',
@@ -131,10 +177,17 @@ app.layout = html.Div([
                               style={
                                   'textAlign': 'center',
                                   'margin-bottom': '10px',
-                                  'width': '150px'}),
+                                  'width': '150px',
+                                  'border-radius':'10px',
+                                  'border-color':'#53a8b6',
+                                  'border-width': 'thick'}),
 
                     html.Br(),
-                    html.Label('Smoking'),
+                    html.Label('Smoking',
+                               style={
+                                   'color': '#113f67',
+                                   'font-size':'20',
+                                   'font-weight':'bold'}),
                     # dcc.Dropdown(id='my-input-8',
                     #              options=['O', '1'],
                     #              value='Smoking',
@@ -147,7 +200,10 @@ app.layout = html.Div([
                               style={
                                   'textAlign': 'center',
                                   'margin-bottom': '10px',
-                                  'width': '150px'}),
+                                  'width': '150px',
+                                  'border-radius':'10px',
+                                  'border-color':'#53a8b6',
+                                  'border-width': 'thick'}),
                 ])
         ]),
     html.Div(
@@ -155,8 +211,23 @@ app.layout = html.Div([
             'textAlign': 'center',
             'margin-top': '70px'
         }, children=[
-            html.Button('Click here to see the result', id='show-secret'),
-            html.Div(id='resultado')
+            html.Button('Click here to see the result', id='show-secret',
+                        style={
+                                  'background-color':'white',
+                                  'color':'#113f67',
+                                  'textAlign': 'center',
+                                  'margin-bottom': '10px',
+                                  'width': '150px',
+                                  'border-radius':'10px',
+                                  'border-color':'#53a8b6',
+                                  'border-width': 'thick'}),
+            html.Div(id='resultado',
+                     style={
+                         'margin-top':'10px',
+                         'color':'#38598b',
+                        'font-size':'35px',
+                        'font-weight':'bold'
+                     })
         ])
 ])
 
