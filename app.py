@@ -1,8 +1,9 @@
-from dash import Dash, html, dcc, callback, Output, Input
 import pickle
+import numpy as np
+from dash import Dash, html, dcc, callback, Output, Input
 from sklearn.neural_network import MLPClassifier
 
-model = 'src/prediction/model.pkl'
+model = 'exercise/model.pkl'
 with open(model, 'rb') as file:
     model = pickle.load(file)
 
@@ -200,14 +201,15 @@ app.layout = html.Div([
     Input('my-input-4', 'value'), Input('my-input-5', 'value'),
     Input('my-input-7', 'value'), Input('my-input-8', 'value')]
 )
-def do_prediction(n_clicks, value1, value2, value3, value4, value5, value6, value7, value8):
-    if n_clicks is None:
-        return None
-    predicts = model.predict(
-        [[value1, value2, value3, value4, value5, value6, value7, value8]])
+def main(n_clicks, value1, value2, value3, value4, value5, value6, value7, value8):
+    return None if n_clicks is None else do_prediction(value1, value2, value3, value4, value5, value6, value7, value8)
 
-    return "Negative" if predicts[0] == 0 else "Positive"
-
+def do_prediction(value1, value2, value3, value4, value5, value6, value7, value8):
+    value = np.asarray(
+    [value1, value2, value3, value4, value5, value6, value7, value8]
+    ).reshape(1, -1)
+    predict = model.predict(value)
+    return "Negative" if predict[0] == 0 else "Positive"
 
 if __name__ == '__main__':
     app.run(debug=True,  port=8080)
