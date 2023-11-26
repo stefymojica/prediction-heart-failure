@@ -3,10 +3,12 @@ import numpy as np
 from dash import Dash, html, dcc, callback, Output, Input
 from sklearn.neural_network import MLPClassifier
 
+# import model pkl
+
 model = 'exercise/model.pkl'
 with open(model, 'rb') as file:
     model = pickle.load(file)
-
+   
 app = Dash(__name__)
 
 app.layout = html.Div([
@@ -192,22 +194,27 @@ app.layout = html.Div([
         ])
 ])
 
+# @callback
 
 @callback(
-    Output('resultado', 'children'),
-    Input('show-secret', 'n_clicks'),
-    [Input('my-input-1', 'value'), Input('my-input-2', 'value'),
+    Output('resultado','children'),
+    Input('show-secret','n_clicks'),
+    [Input('my-input-1', 'value'),Input('my-input-2', 'value'),
     Input('my-input-3', 'value'), Input('my-input-4', 'value'),
     Input('my-input-5', 'value'), Input('my-input-6', 'value'),
     Input('my-input-7', 'value'), Input('my-input-8', 'value')]
 )
-def main(n_clicks, value1, value2, value3, value4, value5, value6, value7, value8):
-    return None if n_clicks is None else do_prediction(value1, value2, value3, value4, value5, value6, value7, value8)
 
-def do_prediction(value1, value2, value3, value4, value5, value6, value7, value8):
-    value = np.asarray(
-    [value1, value2, value3, value4, value5, value6, value7, value8]
-    ).reshape(1, -1)
+# def main()
+
+def main(n_clicks,value1,value2, value3, value4, value5, value6, value7, value8):
+    return None if n_clicks is None else do_prediction(value1,value2, value3, value4, value5, value6, value7, value8)
+
+# def do_prediction()
+
+def do_prediction(value1,value2, value3, value4, value5, value6, value7, value8):
+    value = np.asarray([value1,value2, value3, value4, value5, value6, value7, value8]
+    ).reshape(1,-1)
     predict = model.predict(value)
     return "Negative" if predict[0] == 0 else "Positive"
 
